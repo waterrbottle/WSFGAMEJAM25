@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://bswxi8koupafj"]
+
+[ext_resource type="PackedScene" uid="uid://cpll2jm3qbtw3" path="res://objcts/ground.tscn" id="1_bju55"]
+
+[node name="Train" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.6932383, 0, 0.72070843, 0, 1, 0, -0.72070843, 0, 0.6932383, 9.519278, 3.1826212, 6.356976)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.25554702, 0.96679664, 0, -0.96679664, -0.25554702, 0, 8.042033, 0)
+
+[node name="Ground" parent="." instance=ExtResource("1_bju55")]
