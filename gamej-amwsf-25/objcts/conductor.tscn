@@ -1,13 +1,50 @@
-[gd_scene load_steps=9 format=3 uid="uid://dheo1xhcpd06k"]
+[gd_scene load_steps=10 format=3 uid="uid://dheo1xhcpd06k"]
 
 [ext_resource type="Texture2D" uid="uid://dbbbccq815e1t" path="res://assets/konduktor.png" id="1_r072s"]
 [ext_resource type="Script" uid="uid://cldudaghd74uv" path="res://objcts/conductor.gd" id="1_wwj6o"]
+[ext_resource type="AudioStream" uid="uid://6ybf634uwh8r" path="res://assets/sounds/steps-conductor.wav" id="3_poxds"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_wwj6o"]
 radius = 0.2590473
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wwj6o"]
 albedo_color = Color(0.44, 0.89733326, 1, 1)
+
+[sub_resource type="Animation" id="Animation_poxds"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:rotation:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
 
 [sub_resource type="Animation" id="Animation_wwj6o"]
 resource_name = "spinn"
@@ -44,42 +81,6 @@ tracks/2/keys = {
 "handle_modes": PackedInt32Array(2, 2),
 "points": PackedFloat32Array(0, 0, 0, 0.5, 0, 0, -0.5, 0, 0, 0),
 "times": PackedFloat32Array(0, 3)
-}
-
-[sub_resource type="Animation" id="Animation_poxds"]
-length = 0.001
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation:x")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/2/type = "bezier"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:rotation:z")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0q2ai"]
@@ -127,6 +128,8 @@ omni_range = 2.0
 [node name="sounds" type="Node3D" parent="."]
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="sounds"]
+stream = ExtResource("3_poxds")
+autoplay = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
