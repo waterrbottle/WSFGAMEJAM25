@@ -6,6 +6,8 @@ var agro = false
 var spinphase := false
 var captured := false
 var gobackfromcomp = 0
+var comptemp = 0
+var comp = 0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -13,6 +15,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	print(Global.incomp)
 
 	if go == true:
 		position.x += delta *2* direction * speed
@@ -40,7 +43,10 @@ func _process(delta: float) -> void:
 		else:
 			agro = false
 			speed = 1
-	
+	if int(comp) == int(Global.curcomp):
+		if Global.hide == false:
+			if Global.incomp == true:
+				captured = true
 
 
 
@@ -52,7 +58,8 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
-	
+	if area.is_in_group("enterdetector"):
+		comptemp = area.name
 	if area.is_in_group("dirswitch"):
 		$AnimationPlayer.play("spinn")
 		$Sprite3D.billboard = false
@@ -61,15 +68,15 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 
 	if gobackfromcomp == 0:
 		if area.is_in_group("enterdetector"):
-			if randi_range(1,5) == 1:
+			if randi_range(1,1) == 1:
 				if agro == false:
-				
+					comp = comptemp
 					go = false
 					gobackfromcomp = 1
 	if area.is_in_group("przedzialkoniec"):
 		$Timer.start()
 		gobackfromcomp = 3
-		
+
 
 
 
@@ -92,6 +99,9 @@ func _on_area_3d_area_exited(area: Area3D) -> void:
 			gobackfromcomp = 0
 			go = true
 			print("EXITED")
+			comp = 0
+
+		
 	
 
 

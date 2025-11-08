@@ -1,6 +1,9 @@
 extends Node
 var position := Vector3(0,0,0)
 var hide = false
+var selected = ""
+var curcomp = 0
+var incomp = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.

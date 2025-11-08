@@ -11,13 +11,21 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if hover == true:
-		if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-			for n in $hidecameras.get_children():
-				if n.name == currentselected:
-					n.current = true
-					Global.hide = true
-	
+
+	if Global.hide == true:
+		$CanvasLayer/Label.text = "space to unhide"
+		if Input.is_key_pressed(KEY_SPACE):
+			Global.hide = false
+			Input.action_release("click")
+	else:
+		$CanvasLayer/Label.text = "click to hide"
+	if Input.is_action_just_pressed("click"):
+		for n in $hidecameras.get_children():
+			if n.name == Global.selected:
+				n.current = true
+				Global.hide = true
+				
+
 
 
 
@@ -34,10 +42,9 @@ func _on_area_3d_mouse_exited() -> void:
 func _on_body_entered(body: Node3D) -> void:
 	if body.is_in_group("player"):
 		$CanvasLayer/Label.show()
-		currentselected = body.name
+
 
 
 func _on_body_exited(body: Node3D) -> void:
 	if body.is_in_group("player"):
 		$CanvasLayer/Label.hide()
-		currentselected = ""

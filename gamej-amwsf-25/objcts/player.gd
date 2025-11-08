@@ -31,12 +31,15 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _physics_process(delta: float) -> void:
 	if Global.hide == false:
+		$Camera.current = true
+		show()
 		Global.position = position
 		if Input.is_action_just_pressed(&"jump"): jumping = true
 		if mouse_captured: _handle_joypad_camera_rotation(delta)
 		velocity = _walk(delta) + _gravity(delta) + _jump(delta)
 		move_and_slide()
 	else:
+		$Camera.current = false
 		hide()
 
 func capture_mouse() -> void:
@@ -78,3 +81,20 @@ func _jump(delta: float) -> Vector3:
 		return jump_vel
 	jump_vel = Vector3.ZERO if is_on_floor() or is_on_ceiling_only() else jump_vel.move_toward(Vector3.ZERO, gravity * delta)
 	return jump_vel
+
+
+func _on_area_3d_area_entered(area: Area3D) -> void:
+	if area.is_in_group("chair"):
+		Global.selected = area.name
+	if area.is_in_group("enterdetector"):
+		Global.curcomp = area.name
+	if area.is_in_group("enterdetector"):
+		Global.curcomp = area.name
+	if area.is_in_group("przedzialpl"):
+		
+		Global.incomp = true
+
+
+func _on_area_3d_area_exited(area: Area3D) -> void:
+	if area.is_in_group("przedzialpl"):
+		Global.incomp = false
