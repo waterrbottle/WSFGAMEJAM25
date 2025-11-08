@@ -1,10 +1,13 @@
-[gd_scene load_steps=25 format=3 uid="uid://bswxi8koupafj"]
+[gd_scene load_steps=26 format=3 uid="uid://bswxi8koupafj"]
 
 [ext_resource type="Script" uid="uid://cf8tds8qsya8b" path="res://train.gd" id="1_3bh8j"]
 [ext_resource type="PackedScene" uid="uid://cpll2jm3qbtw3" path="res://objcts/ground.tscn" id="1_bju55"]
 [ext_resource type="FontFile" uid="uid://7qqayegalrpd" path="res://assets/font/static/LexendDeca-Black.ttf" id="3_kfycv"]
 [ext_resource type="PackedScene" uid="uid://qfi7hq210af8" path="res://assets/train.blend" id="4_3bh8j"]
 [ext_resource type="Shader" uid="uid://d4dy2yyx1w868" path="res://train.gdshader" id="4_e27fj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3bh8j"]
+albedo_color = Color(0.174, 0.29, 0.1856, 1)
 
 [sub_resource type="Animation" id="Animation_kfycv"]
 length = 0.001
@@ -526,6 +529,9 @@ transform = Transform3D(1, 0, 0, 0, 0.16485824, 0.9863173, 0, -0.9863173, 0.1648
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.036390305, -2.4080381, -0.42989016)
 script = null
 
+[node name="MeshInstance3D" parent="Ground" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_3bh8j")
+
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -13.360694, 3.5215247, 9.785791)
 current = true
@@ -623,6 +629,7 @@ offset_left = -11.0
 offset_top = 59.0
 offset_right = 203.0
 offset_bottom = 126.0
+mouse_filter = 2
 color = Color(1, 0, 0, 1)
 
 [node name="stars" type="MeshInstance3D" parent="."]
@@ -732,6 +739,7 @@ omni_range = 104.959
 [connection signal="animation_finished" from="Camera3D/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="pressed" from="ui/menu/VBoxContainer/Button" to="." method="_on_button_pressed"]
 
+[editable path="Ground"]
 [editable path="train2/train"]
 [editable path="train2/train2"]
 [editable path="train2/train3"]

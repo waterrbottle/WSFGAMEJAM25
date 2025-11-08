@@ -3,16 +3,22 @@
 [ext_resource type="Script" uid="uid://dijwwxnt6yw2g" path="res://objcts/player.gd" id="1_c30o7"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_30bfc"]
+radius = 0.21191406
+height = 1.6713867
 
 [node name="CharacterBody3D" type="CharacterBody3D" groups=["player"]]
 script = ExtResource("1_c30o7")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.55006385, 0)
 shape = SubResource("CapsuleShape3D_30bfc")
 
 [node name="Player" type="Node3D" parent="."]
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2929535, 0)
+radius = 0.2890625
+height = 1.414093
 
 [node name="Camera" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.593006, 0.24047524)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.21115792, -0.08110291)

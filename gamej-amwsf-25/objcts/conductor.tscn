@@ -1,19 +1,101 @@
-[gd_scene load_steps=5 format=3 uid="uid://dheo1xhcpd06k"]
+[gd_scene load_steps=9 format=3 uid="uid://dheo1xhcpd06k"]
 
 [ext_resource type="Texture2D" uid="uid://dbbbccq815e1t" path="res://assets/konduktor.png" id="1_r072s"]
 [ext_resource type="Script" uid="uid://cldudaghd74uv" path="res://objcts/conductor.gd" id="1_wwj6o"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_wwj6o"]
-radius = 0.5906034
+radius = 0.2590473
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wwj6o"]
 albedo_color = Color(0.44, 0.89733326, 1, 1)
+
+[sub_resource type="Animation" id="Animation_wwj6o"]
+resource_name = "spinn"
+length = 3.0
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(2, 2),
+"points": PackedFloat32Array(0, 0, 0, 0.5, 0, 0, -0.5, 0, 0, 0),
+"times": PackedFloat32Array(0, 3)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(2, 2),
+"points": PackedFloat32Array(1.5707964, 0, 0, 0.5, 1.0471975, 7.8539815, -0.5, -1.3089969, 0, 0),
+"times": PackedFloat32Array(0, 3)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:rotation:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(2, 2),
+"points": PackedFloat32Array(0, 0, 0, 0.5, 0, 0, -0.5, 0, 0, 0),
+"times": PackedFloat32Array(0, 3)
+}
+
+[sub_resource type="Animation" id="Animation_poxds"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:rotation:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0q2ai"]
+_data = {
+&"RESET": SubResource("Animation_poxds"),
+&"spinn": SubResource("Animation_wwj6o")
+}
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_poxds"]
+radius = 0.29200354
 
 [node name="Conductor" type="Node3D"]
 script = ExtResource("1_wwj6o")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.17193031, 0.33844838, 0.0011634751)
 layers = 2
 billboard = 2
 alpha_cut = 1
@@ -46,6 +128,17 @@ omni_range = 2.0
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="sounds"]
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_0q2ai")
+}
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_poxds")
+disabled = true
+
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
+[connection signal="area_exited" from="Area3D" to="." method="_on_area_3d_area_exited"]
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
