@@ -18,24 +18,25 @@ func _process(delta: float) -> void:
 "
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_wtmeq"]
-size = Vector2(100, 100)
+size = Vector2(500, 500)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_454se"]
 albedo_color = Color(0.1325, 0.25, 0.14620835, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ayqpw"]
+albedo_color = Color(0.27, 0.15525, 0.040499996, 1)
 
 [node name="Ground" type="Node3D"]
 script = SubResource("GDScript_wtmeq")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0026202202, -1.0037894, 0.14612389)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.08613157, -1.2877555, 0.16621971)
 mesh = SubResource("PlaneMesh_wtmeq")
 surface_material_override/0 = SubResource("StandardMaterial3D_454se")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.39666748, -0.3876953, 0.296875)
-size = Vector3(100, 0.22460938, 3.0058594)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.435051, -1.2462654, -1.0073242)
+size = Vector3(501.3473, 0.22460938, 0.39746094)
 material = SubResource("StandardMaterial3D_ayqpw")
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="."]
@@ -47,5 +48,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.598537, 2.015768, -22.135
 size = Vector3(1, 8.80127, 2.9916992)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.756836, 1.007884, 16.696182)
-size = Vector3(1, 8.80127, 2.9916992)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.435051, -1.2462654, 1.2307358)
+size = Vector3(501.3473, 0.22460938, 0.39746094)
+material = SubResource("StandardMaterial3D_ayqpw")
