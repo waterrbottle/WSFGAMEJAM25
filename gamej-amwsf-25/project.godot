@@ -19,6 +19,12 @@ config/icon="res://icon.svg"
 
 Global="*res://objcts/global.gd"
 
+[global_group]
+
+player=""
+dirswitch=""
+enterdetector=""
+
 [input]
 
 left={
