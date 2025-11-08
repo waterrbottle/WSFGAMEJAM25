@@ -1,7 +1,8 @@
-[gd_scene load_steps=26 format=3 uid="uid://bswxi8koupafj"]
+[gd_scene load_steps=27 format=3 uid="uid://bswxi8koupafj"]
 
 [ext_resource type="Script" uid="uid://cf8tds8qsya8b" path="res://train.gd" id="1_3bh8j"]
 [ext_resource type="PackedScene" uid="uid://cpll2jm3qbtw3" path="res://objcts/ground.tscn" id="1_bju55"]
+[ext_resource type="FontFile" uid="uid://d18b3nypuuvva" path="res://assets/sitka-3-style-font/sitka-small-815.ttf" id="3_3ccrb"]
 [ext_resource type="FontFile" uid="uid://7qqayegalrpd" path="res://assets/font/static/LexendDeca-Black.ttf" id="3_kfycv"]
 [ext_resource type="PackedScene" uid="uid://qfi7hq210af8" path="res://assets/train.blend" id="4_3bh8j"]
 [ext_resource type="Shader" uid="uid://d4dy2yyx1w868" path="res://train.gdshader" id="4_e27fj"]
@@ -423,6 +424,7 @@ _data = {
 }
 
 [sub_resource type="LabelSettings" id="LabelSettings_lomod"]
+font = ExtResource("3_3ccrb")
 font_size = 24
 
 [sub_resource type="LabelSettings" id="LabelSettings_e27fj"]
@@ -572,7 +574,7 @@ offset_right = 503.0
 offset_bottom = -69.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "oh shit i left my ticket smewhere"
+text = "oh shit i left my ticket somewhere"
 label_settings = SubResource("LabelSettings_lomod")
 horizontal_alignment = 1
 
@@ -594,6 +596,7 @@ grow_vertical = 2
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 focus_mode = 0
+theme_override_fonts/font = ExtResource("3_3ccrb")
 text = "play"
 flat = true
 
@@ -601,6 +604,7 @@ flat = true
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 focus_mode = 0
+theme_override_fonts/font = ExtResource("3_3ccrb")
 text = "settings"
 flat = true
 

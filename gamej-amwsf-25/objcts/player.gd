@@ -30,11 +30,14 @@ func _unhandled_input(event: InputEvent) -> void:
 	#if Input.is_action_just_pressed(&"exit"): get_tree().quit()
 
 func _physics_process(delta: float) -> void:
-	Global.position = position
-	if Input.is_action_just_pressed(&"jump"): jumping = true
-	if mouse_captured: _handle_joypad_camera_rotation(delta)
-	velocity = _walk(delta) + _gravity(delta) + _jump(delta)
-	move_and_slide()
+	if Global.hide == false:
+		Global.position = position
+		if Input.is_action_just_pressed(&"jump"): jumping = true
+		if mouse_captured: _handle_joypad_camera_rotation(delta)
+		velocity = _walk(delta) + _gravity(delta) + _jump(delta)
+		move_and_slide()
+	else:
+		hide()
 
 func capture_mouse() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)

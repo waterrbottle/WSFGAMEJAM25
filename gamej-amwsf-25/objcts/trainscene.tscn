@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bfrru11lce1k5"]
+[gd_scene load_steps=28 format=3 uid="uid://bfrru11lce1k5"]
 
 [ext_resource type="Script" uid="uid://cxoamu03igu24" path="res://objcts/trainscene.gd" id="1_dpjmh"]
 [ext_resource type="PackedScene" uid="uid://dmhthqlxyyh5h" path="res://objcts/player.tscn" id="1_g8ofi"]
@@ -6,6 +6,7 @@
 [ext_resource type="Shader" uid="uid://d4dy2yyx1w868" path="res://train.gdshader" id="4_0c347"]
 [ext_resource type="PackedScene" uid="uid://iswrdw8ygqj" path="res://assets/wagon przedzialowy — kopia-3.blend" id="5_dpjmh"]
 [ext_resource type="PackedScene" uid="uid://cpll2jm3qbtw3" path="res://objcts/ground.tscn" id="5_gce6p"]
+[ext_resource type="FontFile" uid="uid://d18b3nypuuvva" path="res://assets/sitka-3-style-font/sitka-small-815.ttf" id="7_mwfo4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gce6p"]
 size = Vector3(37.189453, 0.42333984, 12.203735)
@@ -193,6 +194,20 @@ size = Vector3(24.318787, 3.4372559, 2.1046753)
 [sub_resource type="BoxShape3D" id="BoxShape3D_mwfo4"]
 size = Vector3(1, 1, 2.4572754)
 
+[sub_resource type="LabelSettings" id="LabelSettings_dpjmh"]
+font = ExtResource("7_mwfo4")
+font_size = 24
+font_color = Color(1, 0.31, 0.31, 1)
+outline_size = 11
+outline_color = Color(0.25, 0, 0, 1)
+stacked_shadow_count = 2
+stacked_shadow_0/offset = Vector2(0, 1)
+stacked_shadow_0/color = Color(0.7, 0, 0, 1)
+stacked_shadow_0/outline_size = 11
+stacked_shadow_1/offset = Vector2(0, 3)
+stacked_shadow_1/color = Color(0.77, 0, 0, 1)
+stacked_shadow_1/outline_size = 7
+
 [node name="Trainscene" type="Node3D"]
 script = ExtResource("1_dpjmh")
 
@@ -327,7 +342,7 @@ light_energy = 5.0
 omni_range = 50.0
 
 [node name="Ground" parent="." instance=ExtResource("5_gce6p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.94576955, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.43886948, -0.9302666, 0.55794907)
 
 [node name="wagon przedzialowy — kopia-3" parent="." instance=ExtResource("5_dpjmh")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.665, -2.0258255, 1)
@@ -383,59 +398,141 @@ shape = SubResource("BoxShape3D_dpjmh")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2581482, -0.32348633, -1.9388428)
 shape = SubResource("BoxShape3D_dpjmh")
 
-[node name="HIDEDETECTORS" type="Node3D" parent="."]
+[node name="hidedetect" type="Node3D" parent="."]
 
-[node name="Area3D" type="Area3D" parent="HIDEDETECTORS"]
+[node name="1" type="Area3D" parent="hidedetect"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="HIDEDETECTORS/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8910427, -1.4989759, -0.969717)
-shape = SubResource("BoxShape3D_mwfo4")
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="HIDEDETECTORS/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9290295, -1.4989759, -0.969717)
-shape = SubResource("BoxShape3D_mwfo4")
-
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="HIDEDETECTORS/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.0468082, -1.4989759, -0.969717)
-shape = SubResource("BoxShape3D_mwfo4")
-
-[node name="CollisionShape3D4" type="CollisionShape3D" parent="HIDEDETECTORS/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.171708, -1.4989759, -0.969717)
-shape = SubResource("BoxShape3D_mwfo4")
-
-[node name="CollisionShape3D5" type="CollisionShape3D" parent="HIDEDETECTORS/Area3D"]
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="hidedetect/1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.061012, -1.4989759, -0.969717)
 shape = SubResource("BoxShape3D_mwfo4")
 
-[node name="CollisionShape3D6" type="CollisionShape3D" parent="HIDEDETECTORS/Area3D"]
+[node name="2" type="Area3D" parent="hidedetect"]
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="hidedetect/2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.171708, -1.4989759, -0.969717)
+shape = SubResource("BoxShape3D_mwfo4")
+
+[node name="3" type="Area3D" parent="hidedetect"]
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="hidedetect/3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.0468082, -1.4989759, -0.969717)
+shape = SubResource("BoxShape3D_mwfo4")
+
+[node name="4" type="Area3D" parent="hidedetect"]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="hidedetect/4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9290295, -1.4989759, -0.969717)
+shape = SubResource("BoxShape3D_mwfo4")
+
+[node name="5" type="Area3D" parent="hidedetect"]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="hidedetect/5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8910427, -1.4989759, -0.969717)
+shape = SubResource("BoxShape3D_mwfo4")
+
+[node name="6" type="Area3D" parent="hidedetect"]
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="hidedetect/6"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.109953, -1.4989759, -0.969717)
 shape = SubResource("BoxShape3D_mwfo4")
 
-[node name="CollisionShape3D7" type="CollisionShape3D" parent="HIDEDETECTORS/Area3D"]
+[node name="7" type="Area3D" parent="hidedetect"]
+
+[node name="CollisionShape3D7" type="CollisionShape3D" parent="hidedetect/7"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.199124, -1.4989759, -0.969717)
 shape = SubResource("BoxShape3D_mwfo4")
 
-[node name="CollisionShape3D8" type="CollisionShape3D" parent="HIDEDETECTORS/Area3D"]
+[node name="8" type="Area3D" parent="hidedetect"]
+
+[node name="CollisionShape3D8" type="CollisionShape3D" parent="hidedetect/8"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.236163, -1.4989759, -0.969717)
 shape = SubResource("BoxShape3D_mwfo4")
 
-[node name="CollisionShape3D9" type="CollisionShape3D" parent="HIDEDETECTORS/Area3D"]
+[node name="9" type="Area3D" parent="hidedetect"]
+
+[node name="CollisionShape3D9" type="CollisionShape3D" parent="hidedetect/9"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.3323145, -1.4989759, -0.969717)
 shape = SubResource("BoxShape3D_mwfo4")
 
-[node name="CollisionShape3D10" type="CollisionShape3D" parent="HIDEDETECTORS/Area3D"]
+[node name="10" type="Area3D" parent="hidedetect"]
+
+[node name="CollisionShape3D10" type="CollisionShape3D" parent="hidedetect/10"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.4042635, -1.4989759, -0.969717)
 shape = SubResource("BoxShape3D_mwfo4")
 
-[node name="CollisionShape3D11" type="CollisionShape3D" parent="HIDEDETECTORS/Area3D"]
+[node name="11" type="Area3D" parent="hidedetect"]
+
+[node name="CollisionShape3D11" type="CollisionShape3D" parent="hidedetect/11"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.511547, -1.4989759, -0.969717)
 shape = SubResource("BoxShape3D_mwfo4")
 
-[node name="CollisionShape3D12" type="CollisionShape3D" parent="HIDEDETECTORS/Area3D"]
+[node name="12" type="Area3D" parent="hidedetect"]
+
+[node name="CollisionShape3D12" type="CollisionShape3D" parent="hidedetect/12"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.195122, -1.4989759, -0.969717)
 shape = SubResource("BoxShape3D_mwfo4")
 
-[connection signal="mouse_entered" from="HIDEDETECTORS/Area3D" to="." method="_on_area_3d_mouse_entered"]
-[connection signal="mouse_exited" from="HIDEDETECTORS/Area3D" to="." method="_on_area_3d_mouse_exited"]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -87.0
+offset_top = -40.0
+offset_right = 87.0
+offset_bottom = -17.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "click to hide"
+label_settings = SubResource("LabelSettings_dpjmh")
+
+[node name="hidecameras" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.536743e-07, 0, -4.7683716e-07)
+
+[node name="1" type="Camera3D" parent="hidecameras"]
+transform = Transform3D(-0.72732973, 0, 0.68628824, 0, 1, 0, -0.68628824, 0, -0.72732973, 9.929119, -1.9630854, -0.8946414)
+
+[node name="2" type="Camera3D" parent="hidecameras"]
+transform = Transform3D(-0.9658309, 0, -0.25917295, 0, 1, 0, 0.25917295, 0, -0.9658309, 7.349557, -1.9630854, -0.8946414)
+
+[node name="3" type="Camera3D" parent="hidecameras"]
+transform = Transform3D(-0.72732973, 0, 0.68628824, 0, 1, 0, -0.68628824, 0, -0.72732973, 5.7685413, -1.9630854, -0.8946414)
+
+[node name="4" type="Camera3D" parent="hidecameras"]
+transform = Transform3D(-0.9658309, 0, -0.25917295, 0, 1, 0, 0.25917295, 0, -0.9658309, 3.2407112, -1.9630854, -0.8946414)
+
+[node name="5" type="Camera3D" parent="hidecameras"]
+transform = Transform3D(-0.72732973, 0, 0.68628824, 0, 1, 0, -0.68628824, 0, -0.72732973, 1.8920012, -1.9630854, -0.8946414)
+
+[node name="6" type="Camera3D" parent="hidecameras"]
+transform = Transform3D(-0.9658309, 0, -0.25917295, 0, 1, 0, 0.25917295, 0, -0.9658309, -0.8445215, -1.9630854, -0.8946414)
+
+[node name="7" type="Camera3D" parent="hidecameras"]
+transform = Transform3D(-0.72732973, 0, 0.68628824, 0, 1, 0, -0.68628824, 0, -0.72732973, -2.4156408, -1.9630854, -0.8946414)
+
+[node name="8" type="Camera3D" parent="hidecameras"]
+transform = Transform3D(-0.9658309, 0, -0.25917295, 0, 1, 0, 0.25917295, 0, -0.9658309, -4.940707, -1.9630854, -0.8946414)
+
+[node name="9" type="Camera3D" parent="hidecameras"]
+transform = Transform3D(-0.72732973, 0, 0.68628824, 0, 1, 0, -0.68628824, 0, -0.72732973, -6.6336665, -1.9630854, -0.8946414)
+
+[node name="10" type="Camera3D" parent="hidecameras"]
+transform = Transform3D(-0.9658309, 0, -0.25917295, 0, 1, 0, 0.25917295, 0, -0.9658309, -9.038818, -1.9630854, -0.8946414)
+
+[node name="11" type="Camera3D" parent="hidecameras"]
+transform = Transform3D(-0.72732973, 0, 0.68628824, 0, 1, 0, -0.68628824, 0, -0.72732973, -10.708124, -1.9630854, -0.8946414)
+
+[node name="12" type="Camera3D" parent="hidecameras"]
+transform = Transform3D(-0.9658309, 0, -0.25917295, 0, 1, 0, 0.25917295, 0, -0.9658309, -13.14606, -1.9630854, -0.8946414)
+
+[connection signal="body_entered" from="hidedetect/5" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="hidedetect/5" to="." method="_on_area_3d_body_exited"]
+[connection signal="mouse_entered" from="hidedetect/5" to="." method="_on_area_3d_mouse_entered"]
+[connection signal="mouse_exited" from="hidedetect/5" to="." method="_on_area_3d_mouse_exited"]
 
 [editable path="wagon przedzialowy — kopia-3"]
