@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bswxi8koupafj"]
+[gd_scene load_steps=25 format=3 uid="uid://bswxi8koupafj"]
 
 [ext_resource type="Script" uid="uid://cf8tds8qsya8b" path="res://train.gd" id="1_3bh8j"]
 [ext_resource type="PackedScene" uid="uid://cpll2jm3qbtw3" path="res://objcts/ground.tscn" id="1_bju55"]
@@ -129,6 +129,61 @@ tracks/10/keys = {
 "points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
+tracks/11/type = "bezier"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("../CSGBox3D:material:shader_parameter/fog_distance")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(616.043, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/12/type = "bezier"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("../CSGBox3D:material:shader_parameter/fog_color:r")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.1464, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/13/type = "bezier"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("../CSGBox3D:material:shader_parameter/fog_color:g")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.15263999, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/14/type = "bezier"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("../CSGBox3D:material:shader_parameter/fog_color:b")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.24, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/15/type = "bezier"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("../CSGBox3D:material:shader_parameter/fog_color:a")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
 
 [sub_resource type="Animation" id="Animation_lomod"]
 resource_name = "intro"
@@ -255,9 +310,68 @@ tracks/10/keys = {
 "times": PackedFloat32Array(3.2097566, 3.5036561)
 }
 
+[sub_resource type="Animation" id="Animation_3ccrb"]
+resource_name = "finish"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../CSGBox3D:material:shader_parameter/fog_distance")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(616.043, -0.25, 0, 0.25, 0, 1, -0.16666667, 86.00717, 0, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../CSGBox3D:material:shader_parameter/fog_color:r")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(0.1464, -0.25, 0, 0.25, 0, 0, -0.16666667, 0.024400001, 0, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../CSGBox3D:material:shader_parameter/fog_color:g")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(0.15263999, -0.25, 0, 0.25, 0, 0, -0.16666667, 0.025439998, 0, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../CSGBox3D:material:shader_parameter/fog_color:b")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(0.24, -0.25, 0, 0.25, 0, 0, -0.16666667, 0.04, 0, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../CSGBox3D:material:shader_parameter/fog_color:a")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.16666667, 0, 0, 0),
+"times": PackedFloat32Array(0, 1)
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_e27fj"]
 _data = {
 &"RESET": SubResource("Animation_kfycv"),
+&"finish": SubResource("Animation_3ccrb"),
 &"intro": SubResource("Animation_lomod")
 }
 
@@ -296,7 +410,7 @@ shader = ExtResource("4_e27fj")
 shader_parameter/enable_fog = false
 shader_parameter/fog_color = Color(0.1464, 0.15263999, 0.24, 1)
 shader_parameter/noise_color = Color(0, 0, 0, 1)
-shader_parameter/fog_distance = 616.0430292145425
+shader_parameter/fog_distance = 616.043
 shader_parameter/fog_fade_range = 50.0
 shader_parameter/enable_noise = true
 shader_parameter/noise_time_fac = 2.66900012351762
