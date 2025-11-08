@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://bq46wgtkaj2gs"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_2sjkh"]
+font_size = 85
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 318.0
+offset_top = 138.0
+offset_right = 362.0
+offset_bottom = 161.0
+text = "u ded"
+label_settings = SubResource("LabelSettings_2sjkh")
